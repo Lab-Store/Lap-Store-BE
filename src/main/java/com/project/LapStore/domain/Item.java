@@ -1,12 +1,12 @@
 package com.project.LapStore.domain;
 
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,6 @@ public class Item {
 
     @Id
     @GeneratedValue
-    @Column(name = "item_id")
     private Long id;
     private String name;
     private String brand;
@@ -29,6 +28,14 @@ public class Item {
 
     @OneToMany(mappedBy = "item")
     private List<MemberItem> memberItemList = new ArrayList<>();
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 
 //    private HashMap<String, String> specList;
 //    private List<String> tagList;

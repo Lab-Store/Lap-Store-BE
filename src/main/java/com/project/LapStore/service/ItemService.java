@@ -5,6 +5,7 @@ import com.project.LapStore.repository.ItemRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ItemService {
@@ -19,7 +20,7 @@ public class ItemService {
         return itemRepository.findAll();
     }
 
-    public Item findById(Long id) {
+    public Optional<Item> findById(Long id) {
         return itemRepository.findById(id);
     }
 

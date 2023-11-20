@@ -11,29 +11,11 @@ import org.springframework.context.annotation.Configuration;
 public class SwaggerConfig {
 
 //    @Bean
-//    public GroupedOpenApi getCustomersApi() {
-//        return GroupedOpenApi
-//                .builder()
-//                .group("customers")
-//                .pathsToMatch("/api/customers/**")
-//                .build();
-//    }
-
-    @Bean
-    public GroupedOpenApi getAccountsApi() {
-        return GroupedOpenApi
-                .builder()
-                .group("accounts")
-                .pathsToMatch("/api/accounts/**")
-                .build();
-    }
-
-//    @Bean
-//    public GroupedOpenApi getBankBranchApi() {
+//    public GroupedOpenApi getAccountsApi() {
 //        return GroupedOpenApi
 //                .builder()
 //                .group("accounts")
-//                .pathsToMatch("/api/bank-branches/**")
+//                .pathsToMatch("/api/accounts/**")
 //                .build();
 //    }
 
@@ -46,7 +28,7 @@ public class SwaggerConfig {
     private Info getInfo() {
         return new Info()
                 .version("1.0.0")
-                .description("BANKING REST API DOC")
+                .description("LA REST API DOC")
                 .title("BANKING");
     }
 }

@@ -4,7 +4,6 @@ import com.project.LapStore.domain.Member;
 import com.project.LapStore.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.thymeleaf.spring5.processor.SpringInputCheckboxFieldTagProcessor;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -36,7 +35,7 @@ public class MemberController {
             case 2:
                 System.out.println("조회할 회원의 Id 를 입력하세요.\n");
                 Long memberId = Long.parseLong(br.readLine());
-                findOne(memberId);
+//                findOne(memberId);
                 break;
             case 3:
 //                System.setIn(new FileInputStream(FILE_PATH));
@@ -44,7 +43,7 @@ public class MemberController {
 
                 br = new BufferedReader(new InputStreamReader(System.in));
                 StringTokenizer st = new StringTokenizer(br.readLine());
-                Long id = memberService.numMembers() + 1;
+//                Long id = memberService.numMembers() + 1;
                 String userid = st.nextToken();
                 String pwd = st.nextToken();
                 String name = st.nextToken();
@@ -53,8 +52,8 @@ public class MemberController {
                 LocalDateTime dateJoined = LocalDateTime.now();
                 boolean isAdministrator = false;
 
-                Member newMember = new Member(id, userid, pwd, name, email, phone, dateJoined, isAdministrator);
-                join(newMember);
+//                Member newMember = new Member(id, userid, pwd, name, email, phone, dateJoined, isAdministrator);
+//                join(newMember);
                 System.out.println(name + " 님의 회원가입이 완료되었습니다.\n");
                 break;
             case 4:
@@ -71,9 +70,6 @@ public class MemberController {
         memberService.findMembers().forEach(System.out::println);
     }
 
-    private void findOne(Long memberId) throws IOException {
-        System.out.println(memberService.findOne(memberId));
-    }
 
 //    @GetMapping("/members/new")
 //    public String createForm(Model model) {

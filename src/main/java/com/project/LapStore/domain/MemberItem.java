@@ -3,7 +3,7 @@ package com.project.LapStore.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 public class MemberItem {
 
     @Id @GeneratedValue
-    @Column(name = "member_item_id")
     private Long id;
 
     @ManyToOne
