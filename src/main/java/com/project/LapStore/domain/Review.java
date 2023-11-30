@@ -23,7 +23,7 @@ public class Review {
 //    private Item item;
 
 //    @OneToMany(mappedBy = "review")
-    private List<ReviewPhoto> reviewPhotoList = new ArrayList<>();
+//    private List<ReviewPhoto> reviewPhotoList = new ArrayList<>();
 
 
 }
