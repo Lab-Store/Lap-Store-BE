@@ -29,14 +29,6 @@ public class Item {
     @OneToMany(mappedBy = "item")
     private List<MemberItem> memberItemList = new ArrayList<>();
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
 //    private HashMap<String, String> specList;
 //    private List<String> tagList;
 //    private List<Sale> salelist;
