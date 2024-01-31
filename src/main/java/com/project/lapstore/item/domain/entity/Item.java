@@ -35,7 +35,7 @@ public class Item extends TimeBaseEntity {
 	@Column(name = "item_brand", nullable = false)
 	private ItemBrand brand;
 
-	@Column(name = "item_wish_count", columnDefinition = "0")
+	@Column(name = "item_wish_count", columnDefinition = "integer default 0")
 	private int wishCount;
 
 	private Item(String name, ItemBrand brand) {
