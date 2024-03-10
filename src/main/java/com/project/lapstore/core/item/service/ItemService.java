@@ -1,11 +1,11 @@
-package com.project.lapstore.item.application;
+package com.project.lapstore.core.item.service;
 
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.project.lapstore.item.domain.entity.Item;
-import com.project.lapstore.item.domain.repository.ItemRepository;
+import com.project.lapstore.core.item.domain.entity.Item;
+import com.project.lapstore.core.item.repository.ItemRepository;
 
 import lombok.RequiredArgsConstructor;
 
@@ -19,7 +19,7 @@ public class ItemService {
 		return itemRepository.findById(id);
 	}
 
-	public Long save(Item item) {
+	public Item registerItem(Item item) {
 		return itemRepository.save(item);
 	}
 

@@ -1,4 +1,4 @@
-package com.project.lapstore.item.domain.entity;
+package com.project.lapstore.core.item.domain.entity;
 
 import static com.project.lapstore.common.exception.CommonValidationError.*;
 import static jakarta.persistence.EnumType.*;

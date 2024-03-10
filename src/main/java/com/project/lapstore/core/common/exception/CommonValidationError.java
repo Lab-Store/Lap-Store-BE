@@ -1,9 +1,10 @@
-package com.project.lapstore.common.exception;
+package com.project.lapstore.core.common.exception;
 
-import lombok.AccessLevel;
+import static lombok.AccessLevel.*;
+
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = PRIVATE)
 public final class CommonValidationError {
 
 	private static final String NOT_NULL_POSTFIX = " 는 Null 이 될 수 없습니다";
@@ -13,7 +14,7 @@ public final class CommonValidationError {
 		return object + "_" + variable + NOT_NULL_POSTFIX;
 	}
 
-	public static String getNotEmptyPostfix(String object, String variable) {
+	public static String getNotEmptyMessage(String object, String variable) {
 		return object + "_" + variable + NOT_EMPTY_POSTFIX;
 	}
 }

@@ -1,4 +1,4 @@
-package com.project.lapstore.common.exception;
+package com.project.lapstore.core.common.exception;
 
 public interface ErrorCode {
 

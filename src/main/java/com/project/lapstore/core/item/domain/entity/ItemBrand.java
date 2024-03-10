@@ -1,4 +1,4 @@
-package com.project.lapstore.item.domain.entity;
+package com.project.lapstore.core.item.domain.entity;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
