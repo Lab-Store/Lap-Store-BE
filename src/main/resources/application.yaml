@@ -26,3 +26,7 @@ info:
     name: LapStore
     description: "노트북 가격비교 웹 어플리케이션입니다."
     version: "1.0.0"
+
+jwt:
+  secret: myungjiuniversitylapstoredevjsonwebtokensecretkey202403
+  token-validity-in-seconds: 864000
