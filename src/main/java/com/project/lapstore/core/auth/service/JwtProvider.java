@@ -19,9 +19,9 @@ import io.jsonwebtoken.security.Keys;
 @Component
 public class JwtProvider {
 
+	private static final String USER_ID = "userId";
 	private final int tokenValidSeconds;
 	private final Key key;
-	private static final String USER_ID = "userId";
 
 	public JwtProvider(
 		@Value("${jwt.secret}") String secretKey,
@@ -50,7 +50,7 @@ public class JwtProvider {
 			.setHeaderParam("type", "jwt")
 			.claim(USER_ID, userId)
 			.setIssuedAt(now)
-			.setExpiration(new Date(now.getTime() + tokenValidSeconds * 1000L))
+			.setExpiration(new Date(now.getTime() + tokenValidSeconds * 1000L))    // 30분
 			.signWith(key, SignatureAlgorithm.HS256)
 			.compact();
 	}
@@ -62,7 +62,7 @@ public class JwtProvider {
 			.setHeaderParam("type", "jwt")
 			.claim(USER_ID, userId)
 			.setIssuedAt(now)
-			.setExpiration(new Date(now.getTime() + tokenValidSeconds * 1000L * 30))
+			.setExpiration(new Date(now.getTime() + tokenValidSeconds * 1000L * 2 * 24 * 14))    // 14일
 			.signWith(key, SignatureAlgorithm.HS256)
 			.compact();
 	}

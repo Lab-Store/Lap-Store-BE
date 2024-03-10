@@ -1,12 +1,12 @@
 package com.project.lapstore.core.item.domain.entity;
 
-import static com.project.lapstore.common.exception.CommonValidationError.*;
+import static com.project.lapstore.core.common.exception.CommonValidationError.*;
 import static jakarta.persistence.EnumType.*;
 import static jakarta.persistence.GenerationType.*;
 
 import org.springframework.util.Assert;
 
-import com.project.lapstore.common.entity.TimeBaseEntity;
+import com.project.lapstore.core.common.entity.TimeBaseEntity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -46,7 +46,7 @@ public class Item extends TimeBaseEntity {
 	}
 
 	private void validateItem(String name, ItemBrand itemBrand) {
-		Assert.hasText(name, getNotEmptyPostfix("Item", "name"));
+		Assert.hasText(name, getNotEmptyMessage("Item", "name"));
 		Assert.notNull(itemBrand, getNotNullMessage("Item", "itemBrand"));
 	}
 

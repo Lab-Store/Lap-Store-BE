@@ -1,4 +1,4 @@
-package com.project.lapstore.common.config;
+package com.project.lapstore.core.common.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
