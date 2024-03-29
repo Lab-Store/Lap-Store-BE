@@ -1,4 +1,9 @@
 spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lap_store_dev?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: 110811
   jpa:
     show-sql: true
     properties:
@@ -6,13 +11,6 @@ spring:
         format_sql: true
         ddl-auto: create-drop
     defer-datasource-initialization: true
-  datasource:
-    url: jdbc:h2:mem:testdb
-  h2:
-    console:
-      enabled: true
-  profiles:
-    active: dev
 
 logging:
   level:
