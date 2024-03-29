@@ -17,8 +17,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor(access = PROTECTED)
 @Getter
+@NoArgsConstructor(access = PROTECTED)
 public class User extends TimeBaseEntity {
 
 	@Id
@@ -34,16 +34,6 @@ public class User extends TimeBaseEntity {
 
 	@Column(name = "name", nullable = false)
 	private String name;
-
-	private void validateUser(
-		String email,
-		String password,
-		String name
-	) {
-		Assert.hasText(email, getNotEmptyMessage("User", "email"));
-		Assert.hasText(password, getNotEmptyMessage("User", "password"));
-		Assert.hasText(name, getNotEmptyMessage("User", "name"));
-	}
 
 	private User(Long id, String email, String password, String name) {
 		this.id = id;
@@ -78,5 +68,15 @@ public class User extends TimeBaseEntity {
 		String name
 	) {
 		return new User(id, email, password, name);
+	}
+
+	private void validateUser(
+		String email,
+		String password,
+		String name
+	) {
+		Assert.hasText(email, getNotEmptyMessage("User", "email"));
+		Assert.hasText(password, getNotEmptyMessage("User", "password"));
+		Assert.hasText(name, getNotEmptyMessage("User", "name"));
 	}
 }

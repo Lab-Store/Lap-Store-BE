@@ -57,11 +57,6 @@ public class Item extends TimeBaseEntity {
 		this.category = category;
 	}
 
-	private void validateItem(String name, Brand brand) {
-		Assert.hasText(name, getNotEmptyMessage("Item", "name"));
-		Assert.notNull(brand, getNotNullMessage("Item", "brand"));
-	}
-
 	public static Item of(
 		String name,
 		Brand brand,
@@ -72,6 +67,11 @@ public class Item extends TimeBaseEntity {
 			.brand(brand)
 			.category(category)
 			.build();
+	}
+
+	private void validateItem(String name, Brand brand) {
+		Assert.hasText(name, getNotEmptyMessage("Item", "name"));
+		Assert.notNull(brand, getNotNullMessage("Item", "brand"));
 	}
 
 }
