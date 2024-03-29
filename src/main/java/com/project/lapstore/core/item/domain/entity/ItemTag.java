@@ -13,18 +13,17 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-public class Spec {
+public class ItemTag {
 
 	@Id
 	@GeneratedValue(strategy = IDENTITY)
-	@Column(name = "spec_id")
+	@Column(name = "item_tag_id")
 	private Long id;
 
 	@OneToOne(fetch = LAZY, cascade = ALL)
@@ -34,39 +33,6 @@ public class Spec {
 		foreignKey = @ForeignKey(NO_CONSTRAINT))
 	private Item item;
 
-	@Column(name = "inch", nullable = false)
-	private Double inch;
-
-	@Column(name = "cpu", nullable = false)
-	private String cpu;
-
-	@Column(name = "ram", nullable = false)
-	private Integer ram;
-
-	@Column(name = "ssd", nullable = false)
-	private Integer ssd;
-
-	@Column(name = "color", nullable = false)
-	private Color color;
-
-	@Column(name = "thickness", nullable = false)
-	private Double thickness;
-
-	@Column(name = "weight", nullable = false)
-	private Double weight;
-
-	@Builder
-	private Spec(
-		Item item, Double inch, String cpu, Integer ram,
-		Integer ssd, Color color, Double thickness, Double weight
-	) {
-		this.item = item;
-		this.inch = inch;
-		this.cpu = cpu;
-		this.ram = ram;
-		this.ssd = ssd;
-		this.color = color;
-		this.thickness = thickness;
-		this.weight = weight;
-	}
+	@Column(name = "name", nullable = false)
+	private String name;
 }

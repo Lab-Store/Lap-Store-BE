@@ -3,6 +3,7 @@ package com.project.lapstore.core.item.domain.entity;
 import static com.project.lapstore.core.common.exception.CommonValidationError.*;
 import static jakarta.persistence.EnumType.*;
 import static jakarta.persistence.GenerationType.*;
+import static lombok.AccessLevel.*;
 
 import org.springframework.util.Assert;
 
@@ -13,14 +14,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
-@NoArgsConstructor
-@Table(name = "item_table")
+@NoArgsConstructor(access = PROTECTED)
 public class Item extends TimeBaseEntity {
 
 	@Id
@@ -28,29 +28,50 @@ public class Item extends TimeBaseEntity {
 	@Column(name = "item_id")
 	private Long id;
 
-	@Column(name = "item_name", nullable = false, unique = true)
+	@Column(name = "name", nullable = false, unique = true)
 	private String name;
 
 	@Enumerated(STRING)
-	@Column(name = "item_brand", nullable = false)
-	private ItemBrand brand;
+	@Column(name = "brand", nullable = false)
+	private Brand brand;
 
-	@Column(name = "item_wish_count", columnDefinition = "integer default 0")
-	private int wishCount;
+	@Enumerated(STRING)
+	@Column(name = "category", nullable = false)
+	private Category category;
 
-	private Item(String name, ItemBrand brand) {
+	@Column(name = "bookmark_count")
+	private int bookmarkCount = 0;
+
+	@Column(name = "lowest_price")
+	private int lowestPrice = 0;
+
+	@Builder
+	private Item(
+		String name,
+		Brand brand,
+		Category category
+	) {
 		validateItem(name, brand);
-
 		this.name = name;
 		this.brand = brand;
+		this.category = category;
 	}
 
-	private void validateItem(String name, ItemBrand itemBrand) {
+	private void validateItem(String name, Brand brand) {
 		Assert.hasText(name, getNotEmptyMessage("Item", "name"));
-		Assert.notNull(itemBrand, getNotNullMessage("Item", "itemBrand"));
+		Assert.notNull(brand, getNotNullMessage("Item", "brand"));
 	}
 
-	public static Item of(String name, ItemBrand brand) {
-		return new Item(name, brand);
+	public static Item of(
+		String name,
+		Brand brand,
+		Category category
+	) {
+		return Item.builder()
+			.name(name)
+			.brand(brand)
+			.category(category)
+			.build();
 	}
+
 }

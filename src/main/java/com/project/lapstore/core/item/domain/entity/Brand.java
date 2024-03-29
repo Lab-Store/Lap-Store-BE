@@ -5,13 +5,11 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum ItemBrand {
+public enum Brand {
 
-	APPLE("APPLE"),
-	SAMSUNG("SAMSUNG"),
-	LG("LG"),
-	LENOVO("LENOVO"),
-	ASUS("ASUS");
-
-	private final String name;
+	APPLE,
+	SAMSUNG,
+	LG,
+	LENOVO,
+	ASUS;
 }

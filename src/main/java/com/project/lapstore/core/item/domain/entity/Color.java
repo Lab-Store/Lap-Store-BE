@@ -5,12 +5,13 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum Category {
+public enum Color {
 
-	DESIGN("디자인노트북"),
-	DEVELOPER("개발자노트북"),
-	OFFICE("사무용노트북"),
-	GAMING("게이밍노트북");
+	BLACK("블랙"),
+	GREY("그레이"),
+	SILVER("실버"),
+	WHITE("화이트"),
+	NAVY("네이비");
 
 	private final String name;
 }
